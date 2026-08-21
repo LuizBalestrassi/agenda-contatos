@@ -10,14 +10,18 @@ def cadastrar_contato():
 
 
 def listar_contatos():
-    pass
+    if not contatos:
+        print("Nenhum contato cadastrado.")
+        return
+    for indice, contato in enumerate(contatos, start=1):
+        print(f"{indice}. {contato['nome']} - {contato['telefone']} - {contato['email']}")
 
 def buscar_contato():
     termo = input("Digite o nome (ou parte dele) para buscar: ")
     encontrou = False 
     for contato in contatos:
         if termo.lower() in contato["nome"].lower():
-            print(f"{contato['nome']} - {contato['telefone']} - contato['email']")
+            print(f"{contato['nome']} - {contato['telefone']} - {contato['email']}")
             encontrou = True
     if not encontrou:
         print("Nenhum contato encontrado")
